@@ -1,0 +1,29 @@
+# Attendance Form Backfill Apply Report
+
+- Apply timestamp: 2026-08-02T04:53:06.870Z
+- Input workbook filename: attendance_grouped_by_session.xlsx
+- SHA-256: 3b138c83e85a66b19198e9ee8d9a673ebe36e109a4e46cc2aa64b3b807740218
+- Fresh preflight result: READY FOR APPLY REVIEW
+- Final pre-write drift result: PASSED
+- Backup directory: D:\My Work\Work\Tech Trek\Summer Training\TechTrek System\techtrek-academy-operations\backups\attendance-form-backfill\2026-08-02T04-53-12-702Z
+- Backup validation: PASSED
+- Original Attendance_Validated row count: 892
+- CREATE candidates: 1462
+- UPDATE candidates: 106
+- ALREADY_PRESENT: 583
+- Late candidates applied: 41
+- Rows created: 1462
+- Rows updated: 106
+- Idempotent no-ops: 0
+- Duplicate Attendance_ID count: 0
+- Duplicate Present pair count: 0
+- Review candidates changed: 0
+- Absent rows created: 0
+- Source rows left unresolved: 1536
+- Post-write verification: PASSED
+- Idempotency simulation: PASSED
+- Rollback attempted: No
+- Rollback result: Not attempted
+- Google Sheets write API calls: 4
+- Final result: APPLY SUCCESSFUL
+- Remaining issue: None

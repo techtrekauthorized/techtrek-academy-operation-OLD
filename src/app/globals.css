@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+:root {
+  --brand: #b91c1c;
+  --brand-dark: #93000b;
+  --ink: #151c27;
+  --muted: #667085;
+  --line: #e5e7eb;
+  --canvas: #f7f8fc;
+}
+
+* { box-sizing: border-box; }
+html { background: var(--canvas); }
+body { margin: 0; background: var(--canvas); color: var(--ink); font-family: Inter, "Segoe UI", Arial, sans-serif; }
+[dir="rtl"] body { font-family: Tahoma, Arial, sans-serif; }
+[dir="rtl"] .heading { letter-spacing: 0; }
+[dir="rtl"] .mono, [dir="rtl"] [data-ltr] { direction: ltr; unicode-bidi: isolate; text-align: left; }
+button, input, select, textarea { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid #dc2626; outline-offset: 2px;
+}
+.heading { font-family: "Hanken Grotesk", Inter, "Segoe UI", sans-serif; letter-spacing: -0.025em; }
+.mono { font-family: "JetBrains Mono", Consolas, monospace; font-variant-numeric: tabular-nums; }
+.scrollbar-thin { scrollbar-width: thin; scrollbar-color: #cbd5e1 transparent; }
+.table-row:hover { background: #f9fafb; }
+@keyframes enter { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+.animate-enter { animation: enter .18s ease-out; }
+@media print { .no-print { display: none !important; } body { background: white; } }
+body[data-role="SALES"] a[href^="/collections"] { display: none; }

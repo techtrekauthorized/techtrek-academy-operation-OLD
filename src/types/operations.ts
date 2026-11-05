@@ -1,0 +1,33 @@
+export type DeliveryTrackRow = { Delivery_Track_ID: string; Delivery_Track_Name: string; Curriculum_Hours: string; Is_Active: string; Notes: string };
+export type DeliveryTrackLevelRow = { Delivery_Track_Level_ID: string; Delivery_Track_ID: string; Level_Code: string; Level_Name: string; Curriculum_Hours: string; Sort_Order: string; Is_Active: string; Notes: string };
+export type OfferingDeliveryMapRow = { Offering_ID: string; Delivery_Track_ID: string; Is_Active: string; Notes: string };
+export type BatchRow = { Batch_ID: string; Batch_Name: string; Delivery_Track_ID: string; Intake: string; Start_Date: string; End_Date: string; Status: string; Notes: string; Batch_Location?: string };
+export type BatchLevelRow = { Batch_Level_ID: string; Batch_ID: string; Delivery_Track_Level_ID: string; Level_Code: string; Level_Name: string; Start_Date: string; End_Date: string; Curriculum_Hours: string; Planned_Live_Hours: string; Project_Assignment_Hours: string; Session_Count: string; Attendance_Rule: string; Status: string; Notes: string };
+export type GroupRow = { Group_ID: string; Group_Name: string; Batch_ID: string; Level_Selection: string; Level_1_Attendance_Mode: string; Level_2_Attendance_Mode: string; Capacity: string; Status: string; Notes: string };
+export type SessionRow = { Session_ID: string; Batch_Level_ID: string; Session_Number: string; Session_Date: string; Day_Name: string; Start_Time: string; End_Time: string; Duration_Hours: string; Session_Title: string; Session_Status: string; Notes: string; Lead_Batch_Staff_Assignment_ID?: string; Assistant_Batch_Staff_Assignment_ID?: string; Mentor_Batch_Staff_Assignment_ID?: string };
+export type StaffRow = { Staff_ID: string; Staff_Name: string; Phone: string; Email: string; Is_Active: string; Notes: string };
+export type BatchStaffAssignmentRow = { Batch_Staff_Assignment_ID: string; Batch_ID: string; Batch_Level_ID: string; Staff_ID: string; Role: string; Pay_Basis: string; Hourly_Rate: string; Fixed_Total: string; Is_Active: string; Notes: string };
+
+export type TrainingOperationsData = {
+  summary: { deliveryTracks: number; offeringMappings: number; batches: number; groups: number; scheduledSessions: number; activeStaff: number };
+  deliveryTracks: Array<{ clientKey: string; id: string; name: string; curriculumHours: number; isActive: boolean; notes: string }>;
+  deliveryTrackLevels: Array<{ clientKey: string; id: string; deliveryTrackId: string; deliveryTrackName: string; levelCode: string; levelName: string; curriculumHours: number; sortOrder: number; isActive: boolean; notes: string }>;
+  offerings: Array<{ clientKey: string; offeringId: string; soldTrack: string; programScope: string; packageLabel: string; exactHours: number; isActive: boolean }>;
+  offeringMappings: Array<{ clientKey: string; offeringId: string; soldTrack: string; programScope: string; packageLabel: string; exactHours: number; deliveryTrackId: string; deliveryTrackName: string; isActive: boolean; notes: string }>;
+  batches: Array<{ id: string; name: string; deliveryTrackId: string; deliveryTrackName: string; intake: string; startDate: string; endDate: string; status: string; notes: string; location: string; levelCount: number }>;
+  batchLevels: Array<{ id: string; batchId: string; batchName: string; deliveryTrackLevelId: string; levelCode: string; levelName: string; startDate: string; endDate: string; curriculumHours: number; plannedLiveHours: number; projectAssignmentHours: number; sessionCount: number; attendanceRule: string; status: string; notes: string }>;
+  groups: Array<{ id: string; name: string; batchId: string; batchName: string; deliveryTrackName: string; levelSelection: string; level1AttendanceMode: string; level2AttendanceMode: string; capacity: number; assignedStudentsCount: number; status: string; notes: string }>;
+  placementQueue: Array<{ enrollmentId: string; academyStudentId: string; studentName: string; phone: string; studentUniversity: string; offeringId: string; soldTrack: string; programScope: string; packageLabel: string; creditHours: number; deliveryMode: string; levelSelection: string; groupId: string; currentGroupName: string; deliveryTrackId: string; deliveryTrackName: string; placementStatuses: Array<"UNPLACED" | "NEEDS_LEVEL_SELECTION" | "READY_TO_PLACE" | "PLACED" | "CONFIGURATION_REQUIRED">; configurationMessage: string }>;
+  sessions: Array<{ id: string; batchLevelId: string; batchId: string; batchName: string; deliveryTrackId: string; deliveryTrackName: string; levelCode: string; levelName: string; attendanceRule: string; sessionDate: string; dayName: string; sessionNumber: number; startTime: string; endTime: string; durationHours: number; title: string; status: string; notes: string; leadAssignmentId: string; assistantAssignmentId: string; mentorAssignmentId: string; leadBatchStaffAssignmentId: string; assistantBatchStaffAssignmentId: string; mentorBatchStaffAssignmentId: string; leadTrainer?: { assignmentId: string; staffName: string; role: string }; assistant?: { assignmentId: string; staffName: string; role: string }; mentor?: { assignmentId: string; staffName: string; role: string } }>;
+  staff: Array<{ id: string; name: string; phone: string; email: string; isActive: boolean; notes: string }>;
+  staffAssignments: Array<{ id: string; staffId: string; staffName: string; batchId: string; batchName: string; batchLevelId: string; levelName: string; deliveryTrackId: string; deliveryTrackName: string; role: string; payBasis: string; isActive: boolean; notes: string; hourlyRate?: number; fixedTotal?: number }>;
+  canViewCompensation: boolean;
+  canManageDeliverySetup: boolean;
+  canManageBatchSetup: boolean;
+  canManageGroups: boolean;
+  canManagePlacement: boolean;
+  canManageSessions: boolean;
+  canManageStaff: boolean;
+  batchLocationConfigured: boolean;
+  currentIntake: string;
+};
